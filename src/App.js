@@ -18,7 +18,6 @@ function App() {
   const deleteHandler = userId=>{
     setUserContent(prevUser=>{
       const updatedUser = prevUser.filter (user => user.id !== userId );
-      console.log('User is deleted')
       return updatedUser;
     });
   };

@@ -28,20 +28,23 @@ const InputComponent = (props) => {
       return;
     }
     const enteredContent = {
-        username: enteredValue,
-        age: enteredAge
+      username: enteredValue,
+      age: enteredAge,
     };
     props.onAddUser(enteredContent);
+
+    setEnteredValue("");
+    setEnteredAge("");
   };
   return (
     <form onSubmit={inputHandler}>
       <div
         className={`${styles["form-control"]} ${!isValid && styles.invalid}`}
       >
-        <label>Username</label>
-        <input type="text" onChange={userInputHandler} />
+        <label >Username</label>
+        <input value={enteredValue} type="text" onChange={userInputHandler} />
         <label>Age</label>
-        <input type="number" onChange={ageInputHandler}></input>
+        <input type="number" value={enteredAge} onChange={ageInputHandler}></input>
         <Button type="submit">Submit</Button>
       </div>
     </form>
